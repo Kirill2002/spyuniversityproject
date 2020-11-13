@@ -4,7 +4,9 @@
     <string name="settings">Настройки</string>
     <string name="rules">Правила</string>
     <string name="back">↩</string>
+    <string name="continue_btn">Продолжить</string>
     <string name="choose_num_of_players">Количество игроков</string>
+    <string name="choose_num_of_spies">Количество шпионов</string>
     <string name="chooseconfig">Выберите конфигурацию:</string>
     <string name="textrules">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit est, posuere a pellentesque nec, commodo nec lectus. Cras varius ultrices lorem eu imperdiet. Donec dolor lacus, blandit vitae tempus et, scelerisque nec neque. Sed rhoncus fringilla ipsum, sit amet convallis dui laoreet quis. Aenean vehicula varius rutrum. Sed non tincidunt metus. Integer erat ligula, interdum eu ipsum eu, maximus rutrum dolor. Fusce pulvinar hendrerit libero sed convallis. Curabitur nec ante congue nisi tempor iaculis at tincidunt lacus. Duis sapien risus, sollicitudin eu urna at, eleifend hendrerit velit. Duis elementum urna sed imperdiet pellentesque. Praesent non consequat velit. Donec vel elit ut libero auctor vehicula id eu tellus. Vestibulum at felis vitae nisi sollicitudin euismod.
 
