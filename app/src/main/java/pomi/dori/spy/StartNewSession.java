@@ -49,7 +49,9 @@ public class StartNewSession extends AppCompatActivity {
                                 contToast = Toast.makeText(getBaseContext(), "Игра не может быть создана", Toast.LENGTH_SHORT);
                                 contToast.show();
                             }else {
-                                intent = new Intent(StartNewSession.this, Rules.class);
+                                intent = new Intent(StartNewSession.this, EnterNames.class);
+                                intent.putExtra("numofplayers", numberofplayers);
+                                intent.putExtra("numofspies", numberofspies);
                                 startActivity(intent);
                                 finish();
                             }

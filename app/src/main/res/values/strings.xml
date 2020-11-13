@@ -3,8 +3,10 @@
     <string name="start">Создать игру</string>
     <string name="settings">Настройки</string>
     <string name="rules">Правила</string>
+    <string name="player">Игрок %1$d:</string>
     <string name="back">↩</string>
     <string name="continue_btn">Продолжить</string>
+    <string name="name">Имя     </string>
     <string name="choose_num_of_players">Количество игроков</string>
     <string name="choose_num_of_spies">Количество шпионов</string>
     <string name="chooseconfig">Выберите конфигурацию:</string>
