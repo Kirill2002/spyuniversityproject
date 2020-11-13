@@ -13,35 +13,47 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private long backPressedTimer;
     private Toast backToast;
+    Button buttonRules;
+    Button buttonStart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button buttonRules = (Button)findViewById(R.id.buttonRules);
+        Window w = getWindow();
+        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        buttonRules.setOnClickListener(new View.OnClickListener(){
-           @Override
-           public void onClick(View v){
+        buttonRules = (Button)findViewById(R.id.buttonRules);
+        buttonStart = (Button)findViewById(R.id.buttonStart);
+        View.OnClickListener OnClickListener = new View.OnClickListener(){
+          @Override
+          public void onClick(View view){
+              Intent intent;
+              try {
+                  switch (view.getId()){
+                      case R.id.buttonStart:
+                          intent = new Intent(MainActivity.this, StartNewSession.class);
+                          startActivity(intent);
+                          break;
+                      case R.id.buttonRules:
+                          intent = new Intent(MainActivity.this, Rules.class);
+                          startActivity(intent);
+                          break;
+                  }
+                  finish();
+              }catch (Exception e){
+                  //
+              }
+          }
+        };
 
-               try {
-                   Intent intent = new Intent(MainActivity.this, Rules.class);
-                   startActivity(intent);
-                   finish();
-               }catch (Exception e){
+        buttonRules.setOnClickListener(OnClickListener);
+        buttonStart.setOnClickListener(OnClickListener);
 
-               }
-           }
-        });
 
-        View decorView = getWindow().getDecorView();
-// Hide both the navigation bar and the status bar.
-// SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
-// a general rule, you should design your app to hide the status bar whenever you
-// hide the navigation bar.
-        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
+
+
     }
 
     @Override
