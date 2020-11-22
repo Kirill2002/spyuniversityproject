@@ -16,7 +16,7 @@ public class RevealSpies extends AppCompatActivity {
     private long backPressedTimer;
     private Toast backToast;
     Button buttonNewGame;
-    Session gameses;
+    Player players[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,48 +26,48 @@ public class RevealSpies extends AppCompatActivity {
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-//        Bundle args = getIntent().getExtras();
-//        if (args!=null){
-//            gameses = (Session) args.getSerializable(Session.class.getSimpleName());
-//        }
-//        buttonNewGame = (Button)findViewById(R.id.newGame);
-//        View.OnClickListener OnClickListener = new View.OnClickListener(){
-//          @Override
-//          public void onClick(View view){
-//              Intent intent;
-//              try {
-//                  if (view.getId() == R.id.newGame) {
-//                      intent = new Intent(RevealSpies.this, StartNewSession.class);
-//                      startActivity(intent);
-//                  }
-//                  finish();
-//              }catch (Exception e){
-//                  //
-//              }
-//          }
-//        };
-//
-//        buttonNewGame.setOnClickListener(OnClickListener);
+        Bundle args = getIntent().getExtras();
+        if (args!=null){
+            players = (Player[]) args.getSerializable(Player.class.getSimpleName());
+        }
+        buttonNewGame = (Button)findViewById(R.id.newGame);
+        View.OnClickListener OnClickListener = new View.OnClickListener(){
+          @Override
+          public void onClick(View view){
+              Intent intent;
+              try {
+                  if (view.getId() == R.id.newGame) {
+                      intent = new Intent(RevealSpies.this, StartNewSession.class);
+                      startActivity(intent);
+                  }
+                  finish();
+              }catch (Exception e){
+                  //
+              }
+          }
+        };
 
-//        showSpies();
+        buttonNewGame.setOnClickListener(OnClickListener);
+
+        showSpies();
 
 
     }
 
-//    public void showSpies(){
-//        LinearLayout container = findViewById(R.id.spiescont);
-//        for (int i=0; i<gameses.NumOfPlayers; i++){
-//            if (gameses.players[i].isSpy) {
-//                String tmp = getString(R.string.player, i+1);
-//                tmp += " " + gameses.players[i].Name;
-//                TextView text = new TextView(this);
-//                text.setText(tmp);
-//                text.setTextSize(30);
-//                text.setPadding(10, 10, 10, 10);
-//                container.addView(text);
-//            }
-//        }
-//    }
+    public void showSpies(){
+        LinearLayout container = findViewById(R.id.spiescont);
+        for (int i=0; i<players.length; i++){
+            if (players[i].isSpy) {
+                String tmp = getString(R.string.player, i+1);
+                tmp += " " + players[i].Name;
+                TextView text = new TextView(this);
+                text.setText(tmp);
+                text.setTextSize(30);
+                text.setPadding(10, 10, 10, 10);
+                container.addView(text);
+            }
+        }
+    }
 
 
     @Override

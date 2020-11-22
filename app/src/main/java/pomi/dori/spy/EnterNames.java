@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class EnterNames extends AppCompatActivity {
     int numberofplayers;
     int numberofspies;
+    int timeinminutes;
     private Toast ToastNames;
     Button buttonBack, buttonCont;
 
@@ -29,6 +30,7 @@ public class EnterNames extends AppCompatActivity {
         Bundle arguments = getIntent().getExtras();
         numberofplayers = arguments.getInt("numofplayers");
         numberofspies = arguments.getInt("numofspies");
+        timeinminutes = arguments.getInt("timeinminutes");
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -56,7 +58,7 @@ public class EnterNames extends AppCompatActivity {
 
                             }
                             if (flag) {
-                                Session gameses = new Session(600, numberofplayers, numberofspies, pls);
+                                Session gameses = new Session(timeinminutes*60, numberofplayers, numberofspies, pls);
                                 intent = new Intent(EnterNames.this, Game.class);
                                 intent.putExtra(Session.class.getSimpleName(), gameses);
                                 startActivity(intent);

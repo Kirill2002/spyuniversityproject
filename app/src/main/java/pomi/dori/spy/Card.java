@@ -48,11 +48,11 @@ public class Card extends androidx.appcompat.widget.AppCompatButton implements S
         lpView.addRule(RelativeLayout.CENTER_VERTICAL);
         this.setLayoutParams(lpView);
         this.setBackgroundResource(R.drawable.card_backside);
-        this.setText(cont.getString(R.string.card, Number));
-        this.setTextSize(20);
-        this.setPadding(10, 50, 15, 0);
-        this.setGravity(Gravity.TOP);
-        this.setTextAlignment(this.getGravity());
+//        this.setText(cont.getString(R.string.card, Number));
+//        this.setTextSize(20);
+//        this.setPadding(20, 20, 0, 0);
+//        this.setGravity(Gravity.START);
+//        this.setTextAlignment(this.getGravity());
 //        View.LayoutParams lpView = new View.LayoutParams(View.LayoutParams.MATCH_PARENT, View.LayoutParams.MATCH_PARENT);
 
 //        this.setId(Number);

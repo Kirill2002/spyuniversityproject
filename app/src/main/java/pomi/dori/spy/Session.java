@@ -2,6 +2,7 @@ package pomi.dori.spy;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Random;
 
 public class Session implements Serializable{
     public String Location;
@@ -18,7 +19,8 @@ public class Session implements Serializable{
         Time=T;
         HashSet<Integer> spies = new HashSet<>();
         while(spies.size()<NOS){
-            spies.add(1 + (int)(Math.random()*NOS));
+            Random rnd = new Random(System.currentTimeMillis());
+            spies.add(rnd.nextInt(NOP));
         }
         for (int i=0; i<NOP; i++){
             players[i] = new Player(PNames[i], spies.contains(i), "Шлюха", i+1);

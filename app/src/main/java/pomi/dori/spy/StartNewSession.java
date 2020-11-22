@@ -15,9 +15,12 @@ import androidx.appcompat.app.AppCompatActivity;
 public class StartNewSession extends AppCompatActivity {
     int numberofplayers=6;
     int numberofspies=2;
+    int timeinminutes=15;
     TextView NumOfPlayers;
     TextView NumOfSpies;
-    SeekBar SeekBarNP, SeekBarNS;
+    TextView TimeInMinutes;
+    SeekBar SeekBarNP, SeekBarNS, SeekBarTime;
+
     Button buttonBack, buttonCont;
     private Toast contToast;
     @Override
@@ -28,6 +31,9 @@ public class StartNewSession extends AppCompatActivity {
         NumOfSpies = (TextView)findViewById(R.id.NumOfSpies);
         NumOfPlayers .setText(String.valueOf(numberofplayers));
         NumOfSpies.setText(String.valueOf(numberofspies));
+
+        TimeInMinutes = (TextView)findViewById(R.id.minutes);
+        TimeInMinutes.setText(String.valueOf(timeinminutes));
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -53,6 +59,7 @@ public class StartNewSession extends AppCompatActivity {
                                 intent = new Intent(StartNewSession.this, EnterNames.class);
                                 intent.putExtra("numofplayers", numberofplayers);
                                 intent.putExtra("numofspies", numberofspies);
+                                intent.putExtra("timeinminutes", timeinminutes);
                                 startActivity(intent);
                                 finish();
                             }
@@ -65,12 +72,18 @@ public class StartNewSession extends AppCompatActivity {
             };
         buttonCont.setOnClickListener(OnClickListener);
         buttonBack.setOnClickListener(OnClickListener);
+
         SeekBarNP = (SeekBar) findViewById(R.id.seekBarPN);
         SeekBarNS = (SeekBar) findViewById(R.id.seekBarSN);
+        SeekBarTime = (SeekBar) findViewById(R.id.seekBarTime);
+
         SeekBarNP.setOnSeekBarChangeListener(seekBarChangeListener);
         SeekBarNS.setOnSeekBarChangeListener(seekBarChangeListener);
+        SeekBarTime.setOnSeekBarChangeListener(seekBarChangeListener);
+
         SeekBarNP.setProgress(numberofplayers);
         SeekBarNS.setProgress(numberofspies);
+        SeekBarTime.setProgress(timeinminutes-1);
 
         }
     private SeekBar.OnSeekBarChangeListener seekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
@@ -85,6 +98,11 @@ public class StartNewSession extends AppCompatActivity {
                 case R.id.seekBarSN:
                     numberofspies = seekBar.getProgress();
                     NumOfSpies.setText(String.valueOf(numberofspies));
+                    break;
+                case R.id.seekBarTime:
+                    timeinminutes = seekBar.getProgress()+1;
+                    TimeInMinutes.setText(String.valueOf(timeinminutes));
+                    break;
             }
 
 

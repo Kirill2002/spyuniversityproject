@@ -78,15 +78,18 @@ public class Game extends AppCompatActivity {
                             }
                             break;
                         case R.id.ContBtn:
-                            countDown.cancel();
-                            try {
+                            if (countDown!=null) {
+                                countDown.cancel();
+                            }
+
                                 Intent intent = new Intent(Game.this, RevealSpies.class);
-                                intent.putExtra(Session.class.getSimpleName(), gameses);
+                                intent.putExtra(Player.class.getSimpleName(), gameses.players);
+                            try {
                                 startActivity(intent);
-                                finish();
                             }catch (Exception e){
 
                             }
+                                finish();
 
                             break;
                     }
@@ -109,8 +112,9 @@ public class Game extends AppCompatActivity {
         Bundle args = getIntent().getExtras();
         if (args!=null){
             gameses = (Session) args.getSerializable(Session.class.getSimpleName());
+            timeLeft = gameses.Time;
         }
-        timeLeft = gameses.Time;
+
         CreateCards();
         }
 
@@ -132,11 +136,11 @@ public class Game extends AppCompatActivity {
         for (int i=gameses.NumOfPlayers-1; i>=0; i--){
             gameses.cards[i] = new Card(this);
             gameses.cards[i].Number=i+1;
-            String Text = gameses.players[i].Name + "\n";
+            String Text = getString(R.string.player, gameses.players[i].Number) + "\n" + gameses.players[i].Name + "\n";
             if (gameses.players[i].isSpy){
                 Text += getString(R.string.spy);
             }else {
-                Text += gameses.Location + "\n" + getString(R.string.role) + gameses.players[i].Role;
+                Text += getString(R.string.location) + gameses.Location + "\n" + getString(R.string.role) + gameses.players[i].Role;
             }
             gameses.cards[i].Text = Text;
             gameses.cards[i].drawCard();
