@@ -1,12 +1,18 @@
 <resources>
     <string name="app_name">Spy</string>
     <string name="start">Создать игру</string>
+    <string name="newGame">Новая игра</string>
     <string name="settings">Настройки</string>
     <string name="rules">Правила</string>
     <string name="player">Игрок %1$d:</string>
     <string name="back">↩</string>
     <string name="continue_btn">Продолжить</string>
-    <string name="name">Имя     </string>
+    <string name="revealspies">Раскрыть шпионов</string>
+    <string name="name">Введите имя</string>
+    <string name="card">"№ %1$d "</string>
+    <string name="timer">"%1$d:%2$d"</string>
+    <string name="spy">Ты шпион</string>
+    <string name="role">"Роль: "</string>
     <string name="choose_num_of_players">Количество игроков</string>
     <string name="choose_num_of_spies">Количество шпионов</string>
     <string name="chooseconfig">Выберите конфигурацию:</string>

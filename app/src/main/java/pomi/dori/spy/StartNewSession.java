@@ -43,6 +43,7 @@ public class StartNewSession extends AppCompatActivity {
                         case R.id.buttonBack2:
                             intent = new Intent(StartNewSession.this, MainActivity.class);
                             startActivity(intent);
+                            finish();
                             break;
                         case R.id.buttonCont:
                             if (numberofplayers==0 || numberofspies==0){
